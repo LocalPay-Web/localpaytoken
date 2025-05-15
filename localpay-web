@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LocalPay (LPAY) - Cách mạng thanh toán địa phương</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; margin: 0; }
+    header { background: #2d89ef; color: white; padding: 20px 40px; text-align: center; }
+    nav { background: #1e5aa5; padding: 10px 40px; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    section { padding: 40px; max-width: 900px; margin: auto; background: white; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    h2 { color: #2d89ef; }
+    footer { background: #2d89ef; color: white; text-align: center; padding: 15px 40px; }
+    input, button, textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 6px; border: 1px solid #ccc; }
+    button { background: #2d89ef; color: white; border: none; cursor: pointer; }
+    button:hover { background: #1e5aa5; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LocalPay (LPAY)</h1>
+    <p>Hệ thống thanh toán phi tập trung dành cho cộng đồng địa phương</p>
+  </header>
+  <nav>
+    <a href="#gioithieu">Giới thiệu</a>
+    <a href="#token">Token</a>
+    <a href="#roadmap">Lộ trình</a>
+    <a href="#mua">Mua Token</a>
+    <a href="#dangky">Đăng ký</a>
+    <a href="#faq">FAQ</a>
+    <a href="#lienhe">Liên hệ</a>
+  </nav>
+
+  <section id="gioithieu">
+    <h2>Giới thiệu về LocalPay</h2>
+    <p>LocalPay (LPAY) là một hệ sinh thái thanh toán dành cho cộng đồng, giúp trao đổi hàng hóa và dịch vụ dễ dàng, nhanh chóng, bảo mật và không phụ thuộc vào ngân hàng.</p>
+  </section>
+
+  <section id="token">
+    <h2>Thông tin Token</h2>
+    <ul>
+      <li><strong>Tên token:</strong> LocalPay</li>
+      <li><strong>Ký hiệu:</strong> LPAY</li>
+      <li><strong>Tổng cung:</strong> 300,000,000 LPAY</li>
+      <li><strong>Blockchain:</strong> Ethereum (Testnet/Mainnet)</li>
+    </ul>
+  </section>
+
+  <section id="roadmap">
+    <h2>Lộ trình phát triển</h2>
+    <ol>
+      <li>Q2 2025 - Ra mắt token LPAY</li>
+      <li>Q3 2025 - Niêm yết trên sàn DEX (PancakeSwap)</li>
+      <li>Q4 2025 - Tích hợp ví & hệ thống thanh toán địa phương</li>
+      <li>Q1 2026 - Mở rộng cộng đồng & phát triển ứng dụng mobile</li>
+    </ol>
+  </section>
+
+  <section id="mua">
+    <h2>Mua Token LPAY</h2>
+    <p>Hiện bạn có thể mua LPAY qua PancakeSwap bằng ví MetaMask hoặc Trust Wallet.</p>
+    <button onclick="window.open('https://pancakeswap.finance')">Mua trên PancakeSwap</button>
+  </section>
+
+  <section id="dangky">
+    <h2>Đăng ký nhận thông tin</h2>
+    <form>
+      <input type="text" placeholder="Họ tên của bạn" required />
+      <input type="email" placeholder="Email liên hệ" required />
+      <button type="submit">Đăng ký ngay</button>
+    </form>
+  </section>
+
+  <section id="faq">
+    <h2>Câu hỏi thường gặp (FAQ)</h2>
+    <h4>LPAY dùng để làm gì?</h4>
+    <p>Dùng để thanh toán hàng hóa, dịch vụ và chuyển tiền trong hệ sinh thái LocalPay.</p>
+    <h4>Có thể mua LPAY ở đâu?</h4>
+    <p>Trên các sàn DEX như PancakeSwap hoặc qua đối tác trong cộng đồng.</p>
+    <h4>LPAY có phải token chính thức?</h4>
+    <p>Đúng, LPAY đã được triển khai và xác minh hợp đồng trên BNB Chain.</p>
+  </section>
+
+  <section id="lienhe">
+    <h2>Liên hệ với chúng tôi</h2>
+    <form>
+      <input type="text" placeholder="Tên của bạn" required />
+      <input type="email" placeholder="Email của bạn" required />
+      <textarea rows="5" placeholder="Nội dung tin nhắn..." required></textarea>
+      <button type="submit">Gửi tin nhắn</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 LocalPay. All rights reserved.</p>
+  </footer>
+</body>
+</html>
