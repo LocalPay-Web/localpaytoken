@@ -1,75 +1,119 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <header class="bg-indigo-700 text-white p-6 shadow">
-  <div class="max-w-7xl mx-auto flex items-center space-x-4">
-    <img src="logo.png" alt="Logo LocalPay" class="w-12 h-12 rounded-full bg-white p-1" />
-    <div>
-      <h1 class="text-3xl font-bold">LocalPay Token (LPAY)</h1>
-      <p class="text-sm mt-1">Giải pháp thanh toán địa phương nhanh chóng và hiệu quả</p>
+import React, { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ethers } from "ethers";
+
+const TOKEN_CONTRACT = "0xb9c8b67b6a2309c4fd26408641a15be6d77bab21"; // LPAY Token address
+const VESTING_CONTRACT = "0xYourVestingContractAddressHere"; // Update this after deploy
+
+const TOKEN_ABI = [
+  "function balanceOf(address owner) view returns (uint256)",
+  "function decimals() view returns (uint8)"
+];
+
+const VESTING_ABI = [
+  "function claim()",
+  "function getClaimable(address user) view returns (uint256)"
+];
+
+export default function Home() {
+  const [walletAddress, setWalletAddress] = useState("");
+  const [isConnected, setIsConnected] = useState(false);
+  const [balance, setBalance] = useState(0);
+  const [claimable, setClaimable] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  const connectWallet = async () => {
+    if (window.ethereum) {
+      try {
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        setWalletAddress(accounts[0]);
+        setIsConnected(true);
+        await fetchBalances(accounts[0]);
+      } catch (err) {
+        console.error("Connection error:", err);
+      }
+    } else {
+      alert("Vui lòng cài đặt MetaMask để kết nối ví.");
+    }
+  };
+
+  const fetchBalances = async (address) => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const token = new ethers.Contract(TOKEN_CONTRACT, TOKEN_ABI, provider);
+    const vesting = new ethers.Contract(VESTING_CONTRACT, VESTING_ABI, provider);
+
+    const decimals = await token.decimals();
+    const bal = await token.balanceOf(address);
+    const claimable = await vesting.getClaimable(address);
+
+    setBalance(parseFloat(ethers.utils.formatUnits(bal, decimals)));
+    setClaimable(parseFloat(ethers.utils.formatUnits(claimable, decimals)));
+  };
+
+  const claimTokens = async () => {
+    if (!window.ethereum || !isConnected) return;
+    try {
+      setLoading(true);
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const vesting = new ethers.Contract(VESTING_CONTRACT, VESTING_ABI, signer);
+
+      const tx = await vesting.claim();
+      await tx.wait();
+      await fetchBalances(walletAddress);
+      alert("Claim thành công!");
+    } catch (err) {
+      console.error("Claim error:", err);
+      alert("Không thể claim lúc này.");
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    if (window.ethereum && window.ethereum.selectedAddress) {
+      setWalletAddress(window.ethereum.selectedAddress);
+      setIsConnected(true);
+      fetchBalances(window.ethereum.selectedAddress);
+    }
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-white text-gray-800">
+      <header className="bg-indigo-700 text-white py-6 shadow">
+        <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold">LocalPay Token (LPAY)</h1>
+          <Button onClick={connectWallet} className="bg-white text-indigo-700 hover:bg-indigo-100">
+            {isConnected ? `${walletAddress.slice(0, 6)}...${walletAddress.slice(-4)}` : "Kết nối ví"}
+          </Button>
+        </div>
+      </header>
+
+      <main className="max-w-6xl mx-auto px-4 py-10">
+        <section className="mb-10 text-center">
+          <h2 className="text-3xl font-semibold text-indigo-700 mb-4">Vesting & Claim LPAY</h2>
+          <p className="text-lg">Xem số dư và claim token theo lịch vesting</p>
+        </section>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Token của bạn</h3>
+            <ul className="list-disc pl-5">
+              <li>Ví: <span className="text-blue-600">{walletAddress}</span></li>
+              <li>Số dư LPAY: <span className="font-medium">{balance}</span></li>
+              <li>Có thể claim: <span className="text-green-600 font-semibold">{claimable}</span></li>
+            </ul>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <Button onClick={claimTokens} disabled={!isConnected || loading || claimable === 0} className="px-6 py-3 bg-indigo-600 text-white text-lg hover:bg-indigo-700">
+              {loading ? "Đang xử lý..." : claimable > 0 ? "Claim LPAY" : "Không có token để claim"}
+            </Button>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-gray-100 py-4 text-center text-sm text-gray-600">
+        © 2025 LocalPay. Bảo lưu mọi quyền.
+      </footer>
     </div>
-  </div>
-</header>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LocalPay Token (LPAY)</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-white text-gray-800 font-sans">
-
-  <header class="bg-indigo-700 text-white p-6 shadow">
-    <div class="max-w-7xl mx-auto">
-      <h1 class="text-3xl font-bold">LocalPay Token (LPAY)</h1>
-      <p class="text-sm mt-2">Giải pháp thanh toán địa phương nhanh chóng và hiệu quả</p>
-    </div>
-  </header>
-
-  <main class="max-w-7xl mx-auto p-6">
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Giới thiệu</h2>
-      <p>LocalPay là dự án blockchain hướng tới việc xây dựng một nền tảng thanh toán dễ tiếp cận, an toàn và chi phí thấp dành cho cộng đồng địa phương, đặc biệt tại các khu vực chưa tiếp cận tài chính truyền thống.</p>
-    </section>
-
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Tokenomics</h2>
-      <ul class="list-disc pl-6 space-y-1">
-        <li><strong>Tên token:</strong> LocalPay</li>
-        <li><strong>Ký hiệu:</strong> LPAY</li>
-        <li><strong>Tổng cung:</strong> 300,000,000</li>
-        <li><strong>Blockchain:</strong> Ethereum</li>
-        <li><strong>Địa chỉ hợp đồng:</strong> 0xb9c8b67b6a2309c4fd26408641a15be6d77bab21</li>
-      </ul>
-    </section>
-
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Lộ trình phát triển</h2>
-      <ul class="list-disc pl-6 space-y-1">
-        <li>Q2 2025: Ra mắt website và cộng đồng</li>
-        <li>Q3 2025: Phát hành token LPAY</li>
-        <li>Q4 2025: Ví điện tử LocalPay, hợp tác thương mại</li>
-        <li>2026: Mở rộng thị trường Đông Nam Á</li>
-      </ul>
-    </section>
-
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Đội ngũ phát triển</h2>
-      <ul class="list-disc pl-6 space-y-1">
-        <li>Nguyễn Văn An – Founder – <a href="#" class="text-blue-600 underline">LinkedIn</a></li>
-        <li>Trần Thị Hoa – CTO – <a href="#" class="text-blue-600 underline">LinkedIn</a></li>
-        <li>Lê Văn Chung – Marketing Lead – <a href="#" class="text-blue-600 underline">LinkedIn</a></li>
-      </ul>
-    </section>
-
-    <section>
-      <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Liên hệ</h2>
-      <p>Email: <a href="mailto:contact@localpaytoken.com" class="text-blue-600 underline">contact@localpaytoken.com</a></p>
-    </section>
-  </main>
-
-  <footer class="bg-gray-100 text-center text-sm text-gray-600 p-4">
-    © 2025 LocalPay. Bảo lưu mọi quyền.
-  </footer>
-
-</body>
-</html>
+  );
+}
