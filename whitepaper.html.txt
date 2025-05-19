@@ -1,153 +1,120 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LocalPay - Whitepaper</title>
+  <title>LocalPay (LPAY) - Whitepaper</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-      padding: 40px;
-      max-width: 960px;
-      margin: auto;
-      background-color: #f8f9fa;
+      margin: 40px;
+      background-color: #f9f9f9;
       color: #333;
+      line-height: 1.6;
     }
-    h1, h2, h3 {
-      color: #007bff;
+    h1, h2 {
+      color: #2c3e50;
     }
-    table {
-      width: 100%;
+    .section {
+      margin-bottom: 40px;
+    }
+    .tokenomics-table {
       border-collapse: collapse;
-      margin: 20px 0;
-      background-color: #fff;
+      width: 100%;
     }
-    th, td {
+    .tokenomics-table th, .tokenomics-table td {
       border: 1px solid #ccc;
-      padding: 12px;
+      padding: 10px;
       text-align: left;
     }
-    th {
-      background-color: #e9ecef;
+    .tokenomics-table th {
+      background-color: #eee;
     }
-    ul {
-      padding-left: 20px;
+    a {
+      color: #007bff;
     }
   </style>
 </head>
 <body>
+  <h1>LocalPay (LPAY) - Whitepaper</h1>
 
-  <h1>Whitepaper – LocalPay (LPAY)</h1>
+  <div class="section">
+    <h2>About</h2>
+    <p><strong>LocalPay (LPAY)</strong> là một nền tảng thanh toán phi tập trung hướng tới việc hỗ trợ giao dịch địa phương dễ dàng, nhanh chóng và an toàn hơn bằng cách ứng dụng công nghệ blockchain. Dự án giúp kết nối người mua và người bán ở các khu vực chưa có hệ thống tài chính hiện đại một cách minh bạch, giảm thiểu rủi ro và chi phí trung gian.</p>
+  </div>
 
-  <h2>1. Giới thiệu chung</h2>
-  <p>LocalPay (LPAY) là một token BEP-20 hướng đến giải pháp thanh toán địa phương thông qua công nghệ blockchain. Dự án hướng đến cộng đồng, giúp giảm thiểu chi phí và tối ưu hóa sự minh bạch trong giao dịch.</p>
+  <div class="section">
+    <h2>Token Information</h2>
+    <ul>
+      <li><strong>Tên token:</strong> LocalPay</li>
+      <li><strong>Ký hiệu:</strong> LPAY</li>
+      <li><strong>Tổng cung:</strong> 300,000,000 LPAY</li>
+      <li><strong>Mạng triển khai:</strong> BNB Smart Chain Testnet</li>
+      <li><strong>Địa chỉ hợp đồng:</strong> <a href="https://testnet.bscscan.com/token/0x0AC84d9F6A4e6d0186C62E99237ae2E3B1E9303B" target="_blank">0x0AC84d9F6A4e6d0186C62E99237ae2E3B1E9303B</a></li>
+    </ul>
+  </div>
 
-  <h2>2. Vấn đề và Giải pháp</h2>
-  <h3>Vấn đề</h3>
-  <ul>
-    <li>Doanh nghiệp địa phương gặp khó khăn trong việc tiếp cận hạ tầng thanh toán hiện đại</li>
-    <li>Phí giao dịch cao và thiếu minh bạch</li>
-  </ul>
-  <h3>Giải pháp</h3>
-  <ul>
-    <li>LocalPay cung cấp hệ thống thanh toán dựa trên blockchain</li>
-    <li>Giao dịch nhanh, minh bạch và chi phí thấp với LPAY token</li>
-  </ul>
-
-  <h2>3. Mô hình hoạt động</h2>
-  <ul>
-    <li>Người dùng thanh toán bằng LPAY tại các cửa hàng chấp nhận</li>
-    <li>Doanh nghiệp nhận LPAY và quy đổi sang BNB hoặc stablecoin</li>
-    <li>Hệ thống staking và phần thưởng cho người giữ LPAY lâu dài</li>
-  </ul>
-
-  <h2>4. Tokenomics</h2>
-  <p><strong>Tổng cung:</strong> 300,000,000 LPAY</p>
-  <table>
-    <thead>
+  <div class="section">
+    <h2>Tokenomics</h2>
+    <table class="tokenomics-table">
       <tr>
         <th>Phân bổ</th>
-        <th>Tỷ lệ (%)</th>
-        <th>Số lượng LPAY</th>
-        <th>Ghi chú</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Bán công khai</td>
-        <td>50%</td>
-        <td>150,000,000</td>
-        <td>Gọi vốn cộng đồng, phân bổ từng đợt</td>
+        <th>Tỷ lệ</th>
+        <th>Số lượng (LPAY)</th>
       </tr>
       <tr>
-        <td>Staking & phần thưởng</td>
-        <td>35%</td>
-        <td>105,000,000</td>
-        <td>Khuyến khích người dùng giữ token</td>
+        <td>Quỹ phát triển</td>
+        <td>20%</td>
+        <td>60,000,000</td>
       </tr>
       <tr>
-        <td>Đội ngũ & cố vấn</td>
+        <td>Marketing & cộng đồng</td>
         <td>15%</td>
         <td>45,000,000</td>
-        <td>Khóa 12 tháng, mở khóa dần trong 3 năm</td>
       </tr>
-    </tbody>
-  </table>
+      <tr>
+        <td>Đội ngũ sáng lập</td>
+        <td>15%</td>
+        <td>45,000,000</td>
+      </tr>
+      <tr>
+        <td>Nhà đầu tư chiến lược</td>
+        <td>10%</td>
+        <td>30,000,000</td>
+      </tr>
+      <tr>
+        <td>Thanh khoản (DEX/CEX)</td>
+        <td>20%</td>
+        <td>60,000,000</td>
+      </tr>
+      <tr>
+        <td>Quỹ dự phòng</td>
+        <td>10%</td>
+        <td>30,000,000</td>
+      </tr>
+      <tr>
+        <td>Staking/Reward</td>
+        <td>10%</td>
+        <td>30,000,000</td>
+      </tr>
+    </table>
+  </div>
 
-  <h2>5. Lộ trình phát triển</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Thời gian</th>
-        <th>Mục tiêu</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Q2/2025</td>
-        <td>
-          - Hoàn tất triển khai token trên BNB Testnet<br>
-          - Ra mắt trang web chính thức
-	  - Mở bán token LPAY<br>	
-        </td>
-      </tr>
-      <tr>
-        <td>Q3/2025</td>
-        <td>
-         
-          - Ra mắt ví LPAY bản beta
-        </td>
-      </tr>
-      <tr>
-        <td>Q4/2025</td>
-        <td>
-          - Tích hợp thanh toán với 5 đối tác địa phương<br>
-          - Kích hoạt staking
-        </td>
-      </tr>
-      <tr>
-        <td>Q1/2026</td>
-        <td>
-          - Mở rộng vùng hoạt động<br>
-          - Niêm yết DEX đầu tiên
-        </td>
-      </tr>
-      <tr>
-        <td>Q2/2026</td>
-        <td>
-          - Phát hành ứng dụng mobile (iOS/Android)<br>
-          - Mở rộng hợp tác hệ sinh thái
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="section">
+    <h2>Roadmap</h2>
+    <ul>
+      <li><strong>Q2/2025:</strong> Ra mắt token LPAY trên Testnet, hoàn thiện whitepaper, website.</li>
+      <li><strong>Q3/2025:</strong> Triển khai ví LocalPay và tích hợp thanh toán thử nghiệm ở một số khu vực địa phương.</li>
+      <li><strong>Q4/2025:</strong> Audit hợp đồng, triển khai mainnet, niêm yết DEX đầu tiên.</li>
+      <li><strong>2026:</strong> Mở rộng sang các thị trường Đông Nam Á, tích hợp cổng thanh toán cho SMEs.</li>
+    </ul>
+  </div>
 
-  <h2>6. Đội ngũ và Cố vấn</h2>
-  <p>Thông tin chi tiết về các thành viên chủ chốt, cố vấn và hồ sơ chuyên môn sẽ được công bố tại <a href="https://localpaytoken.vercel.app" target="_blank">trang web chính thức</a>.</p>
-
-  <h2>7. Kết luận</h2>
-  <p>LocalPay cam kết thúc đẩy nền kinh tế địa phương thông qua công nghệ blockchain, xây dựng hệ sinh thái tài chính công bằng, minh bạch và bền vững.</p>
+  <div class="section">
+    <h2>Liên hệ</h2>
+    <p>Email: <a href="mailto:localpaytoken@gmail.com">localpaytoken@gmail.com</a></p>
+    <p>Website: <a href="https://localpaytoken.vercel.app" target="_blank">https://localpaytoken.vercel.app</a></p>
+  </div>
 
 </body>
 </html>
