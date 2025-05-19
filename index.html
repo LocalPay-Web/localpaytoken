@@ -1,80 +1,89 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LocalPay (LPAY) - Mã thông báo chính thức</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2e4aad;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .tokenomics ul, .roadmap ul, .team ul {
+      padding-left: 20px;
+    }
+    .footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #777;
+    }
+    img {
+      max-width: 400px;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
 
-export default function Home() {
-  return (
-    <main className="p-6 space-y-10">
-      {/* Header */}
-      <section className="text-center space-y-2">
-        <h1 className="text-4xl font-bold">LocalPay Token (LPAY)</h1>
-        <p className="text-lg text-gray-600">Giải pháp thanh toán địa phương nhanh chóng và hiệu quả</p>
-      </section>
+  <h1>LocalPay Token (LPAY)</h1>
+  <p>Giải pháp thanh toán địa phương phi tập trung nhanh chóng và hiệu quả.</p>
 
-      {/* About */}
-      <section className="grid gap-4">
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-2xl font-semibold mb-2">Giới thiệu</h2>
-            <p>
-              LocalPay là dự án blockchain với mục tiêu tạo ra nền tảng thanh toán phi tập trung, hỗ trợ giao dịch tức thì tại các địa phương,
-              đặc biệt là khu vực chưa tiếp cận tài chính truyền thống.
-            </p>
-          </CardContent>
-        </Card>
-      </section>
+  <div class="section about">
+    <h2>Giới thiệu</h2>
+    <p>
+      LocalPay là dự án blockchain hướng tới việc xây dựng một nền tảng thanh toán dễ tiếp cận, an toàn và chi phí thấp dành cho cộng đồng địa phương, đặc biệt tại các khu vực chưa tiếp cận tài chính truyền thống.
+    </p>
+  </div>
 
-      {/* Tokenomics */}
-      <section className="grid gap-4">
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-2xl font-semibold mb-2">Tokenomics</h2>
-            <ul className="list-disc pl-5 mb-4">
-              <li>Tên token: LocalPay</li>
-              <li>Ký hiệu: LPAY</li>
-              <li>Tổng cung: 300,000,000</li>
-              <li>Blockchain: Ethereum</li>
-              <li>Địa chỉ hợp đồng: 0xb9c8b67b6a2309c4fd26408641a15be6d77bab21</li>
-            </ul>
-            <img src="/token-allocation-chart.png" alt="Phân bổ token LPAY" className="w-full max-w-md mx-auto" />
-          </CardContent>
-        </Card>
-      </section>
+  <div class="section tokenomics">
+    <h2>Tokenomics</h2>
+    <ul>
+      <li>Tên token: LocalPay</li>
+      <li>Ký hiệu: LPAY</li>
+      <li>Tổng cung: 300,000,000</li>
+      <li>Blockchain: Ethereum</li>
+      <li>Địa chỉ hợp đồng: <b>0xb9c8b67b6a2309c4fd26408641a15be6d77bab21</b></li>
+    </ul>
+    <img src="https://i.imgur.com/1jVul4b.png" alt="Phân bổ token LPAY" />
+  </div>
 
-      {/* Roadmap */}
-      <section className="grid gap-4">
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-2xl font-semibold mb-2">Lộ trình phát triển</h2>
-            <ul className="list-disc pl-5">
-              <li>Q2 2025: Ra mắt website và cộng đồng</li>
-              <li>Q3 2025: Phát hành token LPAY</li>
-              <li>Q4 2025: Triển khai ví LocalPay và hợp tác thương mại</li>
-              <li>2026: Mở rộng thị trường Đông Nam Á</li>
-            </ul>
-          </CardContent>
-        </Card>
-      </section>
+  <div class="section roadmap">
+    <h2>Lộ trình phát triển</h2>
+    <ul>
+      <li>Q2 2025: Ra mắt website và cộng đồng</li>
+      <li>Q3 2025: Phát hành token LPAY</li>
+      <li>Q4 2025: Ví điện tử LocalPay, hợp tác thương mại</li>
+      <li>2026: Mở rộng thị trường Đông Nam Á</li>
+    </ul>
+  </div>
 
-      {/* Team */}
-      <section className="grid gap-4">
-        <Card>
-          <CardContent className="p-4">
-            <h2 className="text-2xl font-semibold mb-2">Đội ngũ phát triển</h2>
-            <ul className="list-disc pl-5">
-              <li>Nguyễn Văn Nam – Founder – <a href="#" className="text-blue-600">LinkedIn</a></li>
-              <li>Trần Thị Hoa – CTO – <a href="#" className="text-blue-600">LinkedIn</a></li>
-              <li>Lê Văn Chung – Marketing Lead – <a href="#" className="text-blue-600">LinkedIn</a></li>
-            </ul>
-          </CardContent>
-        </Card>
-      </section>
+  <div class="section team">
+    <h2>Đội ngũ phát triển</h2>
+    <ul>
+      <li>Nguyễn Văn A – Founder – <a href="#">LinkedIn</a></li>
+      <li>Trần Thị Hoa – CTO – <a href="#">LinkedIn</a></li>
+      <li>Lê Văn Chung – Marketing Lead – <a href="#">LinkedIn</a></li>
+    </ul>
+  </div>
 
-      {/* Contact */}
-      <section className="text-center">
-        <p className="text-sm text-gray-600">Liên hệ: contact@localpaytoken.com</p>
-        <Button className="mt-4">Kết nối ví Web3</Button>
-      </section>
-    </main>
-  );
-}
+  <div class="section contact">
+    <h2>Liên hệ</h2>
+    <p>Email: contact@localpaytoken.com</p>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 LocalPay. All rights reserved.
+  </div>
+
+</body>
+</html>
