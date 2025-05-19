@@ -1,101 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LocalPay (LPAY) - Empowering Local Economy</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800">
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
-  <!-- Header -->
-  <header class="bg-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-indigo-600">LocalPay</h1>
-      <nav class="space-x-6 text-sm">
-        <a href="#about" class="hover:text-indigo-600">About</a>
-        <a href="#tokenomics" class="hover:text-indigo-600">Tokenomics</a>
-        <a href="#roadmap" class="hover:text-indigo-600">Roadmap</a>
-        <a href="#contact" class="hover:text-indigo-600">Contact</a>
-      </nav>
-    </div>
-  </header>
+export default function Home() {
+  return (
+    <main className="p-6 space-y-10">
+      {/* Header */}
+      <section className="text-center space-y-2">
+        <h1 className="text-4xl font-bold">LocalPay Token (LPAY)</h1>
+        <p className="text-lg text-gray-600">Giải pháp thanh toán địa phương nhanh chóng và hiệu quả</p>
+      </section>
 
-  <!-- Hero -->
-  <section class="bg-indigo-600 text-white py-20 text-center">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-4xl font-bold mb-4">Welcome to LocalPay (LPAY)</h2>
-      <p class="text-lg mb-6">Decentralized payments for local communities. Empowering local businesses with blockchain.</p>
-      <a href="#" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-indigo-100">Buy Token</a>
-    </div>
-  </section>
+      {/* About */}
+      <section className="grid gap-4">
+        <Card>
+          <CardContent className="p-4">
+            <h2 className="text-2xl font-semibold mb-2">Giới thiệu</h2>
+            <p>
+              LocalPay là dự án blockchain với mục tiêu tạo ra nền tảng thanh toán phi tập trung, hỗ trợ giao dịch tức thì tại các địa phương,
+              đặc biệt là khu vực chưa tiếp cận tài chính truyền thống.
+            </p>
+          </CardContent>
+        </Card>
+      </section>
 
-  <!-- About -->
-  <section id="about" class="py-16 bg-white">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-2xl font-bold mb-4 text-center text-indigo-600">About LocalPay</h3>
-      <p class="text-center text-gray-600 leading-relaxed">
-        LocalPay (LPAY) is a BEP-20 token designed to facilitate fast, low-fee, and secure transactions within local communities.
-        Our mission is to support micro-businesses, local markets, and everyday users through decentralized finance.
-      </p>
-    </div>
-  </section>
+      {/* Tokenomics */}
+      <section className="grid gap-4">
+        <Card>
+          <CardContent className="p-4">
+            <h2 className="text-2xl font-semibold mb-2">Tokenomics</h2>
+            <ul className="list-disc pl-5 mb-4">
+              <li>Tên token: LocalPay</li>
+              <li>Ký hiệu: LPAY</li>
+              <li>Tổng cung: 300,000,000</li>
+              <li>Blockchain: Ethereum</li>
+              <li>Địa chỉ hợp đồng: 0xb9c8b67b6a2309c4fd26408641a15be6d77bab21</li>
+            </ul>
+            <img src="/token-allocation-chart.png" alt="Phân bổ token LPAY" className="w-full max-w-md mx-auto" />
+          </CardContent>
+        </Card>
+      </section>
 
-  <!-- Tokenomics -->
-  <section id="tokenomics" class="py-16 bg-gray-100">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-2xl font-bold mb-8 text-center text-indigo-600">Tokenomics</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div>
-          <p class="text-3xl font-bold text-indigo-600">300.000.000</p>
-          <p>Total Supply</p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-indigo-600">50%</p>
-          <p>Public Sale</p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-indigo-600">35%</p>
-          <p>Liquidity & Staking</p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-indigo-600">15%</p>
-          <p>Team & Development</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      {/* Roadmap */}
+      <section className="grid gap-4">
+        <Card>
+          <CardContent className="p-4">
+            <h2 className="text-2xl font-semibold mb-2">Lộ trình phát triển</h2>
+            <ul className="list-disc pl-5">
+              <li>Q2 2025: Ra mắt website và cộng đồng</li>
+              <li>Q3 2025: Phát hành token LPAY</li>
+              <li>Q4 2025: Triển khai ví LocalPay và hợp tác thương mại</li>
+              <li>2026: Mở rộng thị trường Đông Nam Á</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </section>
 
-  <!-- Roadmap -->
-  <section id="roadmap" class="py-16 bg-white">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-2xl font-bold mb-6 text-center text-indigo-600">Roadmap</h3>
-      <div class="space-y-4">
-        <div class="bg-gray-100 p-4 rounded-md">
-          <p><strong>Q2 2025:</strong> Token launch on Ethereum Testnet & Website release</p>
-        </div>
-        <div class="bg-gray-100 p-4 rounded-md">
-          <p><strong>Q3 2025:</strong> Launch LPAY dApp, Community building, Whitepaper v1</p>
-        </div>
-        <div class="bg-gray-100 p-4 rounded-md">
-          <p><strong>Q4 2025:</strong> CEX Listings, Partnerships with local merchants</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      {/* Team */}
+      <section className="grid gap-4">
+        <Card>
+          <CardContent className="p-4">
+            <h2 className="text-2xl font-semibold mb-2">Đội ngũ phát triển</h2>
+            <ul className="list-disc pl-5">
+              <li>Nguyễn Văn A – Founder – <a href="#" className="text-blue-600">LinkedIn</a></li>
+              <li>Trần Thị B – CTO – <a href="#" className="text-blue-600">LinkedIn</a></li>
+              <li>Lê Văn C – Marketing Lead – <a href="#" className="text-blue-600">LinkedIn</a></li>
+            </ul>
+          </CardContent>
+        </Card>
+      </section>
 
-  <!-- Contact & Footer -->
-  <footer id="contact" class="bg-indigo-600 text-white py-8">
-    <div class="max-w-5xl mx-auto px-4 text-center space-y-4">
-      <p>🔗 Contract Address: <code>0x1234...abcd</code></p>
-      <div class="space-x-4">
-        <a href="#" class="hover:underline">Twitter</a>
-        <a href="#" class="hover:underline">Telegram</a>
-        <a href="#" class="hover:underline">GitHub</a>
-      </div>
-      <p>&copy; 2025 LocalPay. All rights reserved.</p>
-    </div>
-  </footer>
-
-</body>
-</html>
+      {/* Contact */}
+      <section className="text-center">
+        <p className="text-sm text-gray-600">Liên hệ: contact@localpaytoken.com</p>
+        <Button className="mt-4">Kết nối ví Web3</Button>
+      </section>
+    </main>
+  );
+}
